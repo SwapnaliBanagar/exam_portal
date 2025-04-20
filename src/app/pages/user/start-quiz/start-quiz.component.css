@@ -1,0 +1,93 @@
+mat-card-title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style filter container */
+.filter-container {
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Filter field styling */
+.filter-field {
+  width: 80%;
+  /* Makes filter width responsive */
+  max-width: 800px;
+  /* Sets a maximum width */
+  min-width: 300px;
+  /* Sets a minimum width */
+}
+
+
+.full-width {
+  width: 90%;
+}
+
+
+.quiz-card {
+  margin-bottom: 16px;
+  /* Adds space between question cards */
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  /* Adds gap between buttons */
+  margin-bottom: 16px;
+  /* Adds margin at the bottom */
+  margin-right: 10px;
+}
+
+
+.submit-btn {
+  background-color: #1565c0 !important;
+  color: white !important;
+}
+
+button.mat-flat-button:disabled {
+  cursor: not-allowed !important;
+}
+
+.correct-answer {
+  font-weight: bold;
+  color: rgb(95, 152, 115);
+  
+}
+
+.quiz-summary {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+/* Result Summary Styling */
+.result-summary {
+  padding: 20px;
+  margin: 20px;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.result-summary mat-card {
+  box-shadow: 0 4px 8px rgba(21, 101, 192, 0.2);
+}
+
+.result-summary mat-card-title {
+  font-size: 24px;
+  color: #1565c0;
+  text-align: center;
+}

@@ -1,0 +1,87 @@
+/* 
+/* Style filter container */
+.filter-container {
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Filter field styling */
+.filter-field {
+  width: 80%;
+  /* Makes filter width responsive */
+  max-width: 800px;
+  /* Sets a maximum width */
+  min-width: 300px;
+  /* Sets a minimum width */
+}
+
+
+
+mat-card-title {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.question-card {
+  margin-bottom: 16px;
+  /* Adds space between question cards */
+}
+
+
+
+
+
+
+.addQuestion-button {
+  margin-left: 40px;
+  justify-content:end;
+
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  /* Adds gap between buttons */
+  margin-bottom: 16px;
+  /* Adds margin at the bottom */
+  margin-right: 10px;
+}
+
+
+.edit-btn {
+  background-color: #1565c0 !important;
+  /* Primary blue color */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #c62828 !important;
+  /* Red color */
+  color: white;
+}
+.updateForm
+{
+  
+  justify-content: center;
+}
+.full-width {
+  width: 80%;
+ }
+ .form-container {
+    
+  text-align: center;
+      background: #f4f4f4; /* Light background */
+ }
+.button-group
+{
+  display: flex;
+   justify-content: space-evenly;
+   margin-bottom: 20px;
+}
+
+

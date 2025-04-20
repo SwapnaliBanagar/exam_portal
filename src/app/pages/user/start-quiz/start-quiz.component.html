@@ -1,0 +1,75 @@
+<mat-card>
+    <mat-card-title>Start Quiz</mat-card-title>
+
+    <!-- Category Filter -->
+    <div class="filter-container">
+        <mat-form-field appearance="fill" class="filter-field">
+            <mat-label>Filter by Category</mat-label>
+            <mat-select [(value)]="selectedCategory" (selectionChange)="filterQuestions()">
+                <mat-option value="" disabled>Select Category</mat-option>
+                <mat-option value="all">All Questions</mat-option>
+                <mat-option *ngFor="let category of categoriesDto" [value]="category.name">
+                    {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+
+
+    <!---------------------- here show all questions -------------------->
+    <div *ngIf="!allQuestionsAttempted">
+        <!-- Summary Counts -->
+        <div *ngIf="selectedCategory" class="quiz-summary">
+            <p>Total Questions: <strong>{{ totalQuestions }}</strong></p>
+        </div>
+        <mat-card *ngFor="let q of questionDto" class="quiz-card">
+            <mat-card-content>
+                <h3>{{ q.question }}</h3>
+
+                <mat-radio-group [(ngModel)]="q.selectedOption" [disabled]="q.submitted === true">
+                    <mat-radio-button [value]="q.option1">
+                        1. <span [ngClass]="{ 'correct-answer': q.submitted && q.answer === q.option1 }">{{ q.option1
+                            }}</span>
+                    </mat-radio-button><br>
+
+                    <mat-radio-button [value]="q.option2">
+                        2. <span [ngClass]="{ 'correct-answer': q.submitted && q.answer === q.option2 }">{{ q.option2
+                            }}</span>
+                    </mat-radio-button><br>
+
+                    <mat-radio-button [value]="q.option3">
+                        3. <span [ngClass]="{ 'correct-answer': q.submitted && q.answer === q.option3 }">{{ q.option3
+                            }}</span>
+                    </mat-radio-button><br>
+
+                    <mat-radio-button [value]="q.option4">
+                        4. <span [ngClass]="{ 'correct-answer': q.submitted && q.answer === q.option4 }">{{ q.option4
+                            }}</span>
+                    </mat-radio-button><br>
+                </mat-radio-group>
+
+            </mat-card-content>
+            <div class="button-container">
+                <button mat-flat-button type="submit" class="submit-btn" (click)="submitAnswer(q)"
+                    [disabled]="q.submitted === true">Submit</button>
+            </div>
+        </mat-card>
+    </div>
+
+    <!-- show Result -->
+    <div *ngIf="allQuestionsAttempted && selectedCategory" class="result-summary">
+        <mat-card>
+            <mat-card-title>Result Summary</mat-card-title>
+            <mat-card-content>
+                <p><strong>Total Questions:</strong> {{ totalQuestions }}</p>
+                <p><strong>Attempted Questions:</strong> {{ attemptedQuestions }}</p>
+                <p><strong>Correct Answers:</strong> {{ correctAnswers }}</p>
+                <p><strong>Wrong Answers:</strong> {{ attemptedQuestions - correctAnswers }}</p>
+                <p><strong>Score:</strong> {{ correctAnswers }}/{{ totalQuestions }}</p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+
+</mat-card>

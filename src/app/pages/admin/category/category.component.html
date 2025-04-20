@@ -1,0 +1,76 @@
+<mat-card>
+
+    <div class="container text-center">
+        <button mat-flat-button (click)="toggleAddCategory()">Add New Category</button>
+        <button mat-flat-button (click)="toggleDeleteCategoryForm()">Delete Category</button>
+    </div>
+
+
+
+
+
+    <!-- add new category form   -->
+    <div class="form-container">
+        <mat-card *ngIf="showAddCategoryForm">
+            <form style="margin-top: 20px;" autocomplete="off">
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Category_Name</mat-label>
+                    <input [(ngModel)]="name" name="name" matInput type="text" placeholder="Enter your category_name"
+                        autocomplete="off" required>
+                </mat-form-field>
+
+                <mat-form-field class="full-width" appearance="outline">
+                    <mat-label>Category_Description</mat-label>
+                    <input [(ngModel)]="description" name="description" matInput type="text"
+                        placeholder="Enter your description" autocomplete="off">
+                </mat-form-field>
+                <!-- Submit Button -->
+                <button type="button" class="btn-custom btn-secondary" (click)="addCategoryBackButton()">Back</button>
+                <button type="submit" class="btn-custom btn-primary" (click)="addCategory()">Submit</button>
+            </form>
+        </mat-card>
+    </div>
+
+
+
+
+
+
+    <!-- toggle(show) delete category form -->
+    <div class="form-container2">
+        <mat-card *ngIf="showDeleteCategoryForm" class="deleteMatCard">
+            <mat-card-title>Delete Category</mat-card-title>
+            <!--  Select Category for delete -->
+            <mat-form-field class="full-width">
+                <mat-label >Select Category Name</mat-label>
+                <mat-select [(ngModel)]="selectedDeletedCategory" name="name">
+                    <mat-option *ngFor="let category of categoriesDto" [value]="category.name">
+                        {{ category.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <button mat-flat-button class="deleteCategoryButton" (click)="deleteCategory()" [disabled]="!selectedDeletedCategory">Delete</button>
+        </mat-card>
+    </div>
+
+
+
+
+
+
+
+    <h3>All Categories</h3>
+    <mat-list>
+        <ng-container *ngFor="let c of categoriesDto; let last=last">
+            <mat-list-item>
+                <div mat-line>
+                    <mat-icon mat-icon>folder</mat-icon>{{c.category_id}}. {{c.name}}
+                </div>
+            </mat-list-item>
+
+            <mat-divider *ngIf="!last" class="category-divider"></mat-divider> <!-- Card-like Divider -->
+        </ng-container>
+    </mat-list>
+
+    

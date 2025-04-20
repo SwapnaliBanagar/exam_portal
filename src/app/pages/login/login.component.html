@@ -1,0 +1,47 @@
+<div class="bootstap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+
+                <mat-card >
+                <div class="container text-center">
+                    <img src="/assets/logo.webp" alt="Exam Portal Logo"
+                        style="width: 150px; height: 150px; border-radius: 50%; margin-top: 10px;">
+                </div>
+                <h2 class="loginTitle">Login Here....</h2>
+
+                <form #myLoginForm="ngForm" (ngSubmit)="loginFormSubmit(myLoginForm)" style="margin-top: 20px;" autocomplete="off">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input [(ngModel)]="user.userName" name="userName" matInput type="text"
+                            placeholder="Enter your username" autocomplete="off" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input  [(ngModel)]="user.password" name="userPass" matInput
+                            [type]="showPassword ? 'text' : 'password'" placeholder="Enter your password"  autocomplete="off" required/>
+                        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+                            <mat-icon>{{ showPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Role</mat-label>
+                        <mat-select  [(ngModel)]="user.role" name="role" required>
+                            <mat-option value="admin">admin</mat-option>
+                            <mat-option value="user">user</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    
+
+                    <!-- Submit Button -->
+                    <button  type="button" class="btn-custom btn-secondary" (click)="backButton(myLoginForm,$event)">Back</button>
+                    <button type="submit" class="btn-custom btn-primary">Login</button>
+                </form>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

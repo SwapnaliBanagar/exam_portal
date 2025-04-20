@@ -1,0 +1,76 @@
+<mat-card class="add-question-card">
+    <mat-card-title>Add Question</mat-card-title>
+    <mat-card-content>
+
+
+        <!-- Step 1: Select Category -->
+        <mat-form-field class="full-width">
+            <mat-label>Select Category</mat-label>
+            <mat-select [(ngModel)]="selectedCategoryId" (selectionChange)="onCategoryChange()">
+                <mat-option *ngFor="let category of categoriesDto" [value]="category.category_id">
+                    {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!-- Step 2: fiel the form -->
+        <div class="form-container" *ngIf="showForm">
+            <mat-card *ngIf="selectedCategoryId">
+                <form style="margin-top: 20px;" autocomplete="off" (ngSubmit)="addQuestion()">
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Question</mat-label>
+                        <input [(ngModel)]="questionDto.question" name="question" matInput type="text"
+                            placeholder="Enter your question" autocomplete="off" required>
+                    </mat-form-field>
+
+                    
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Option1</mat-label>
+                        <input [(ngModel)]="questionDto.option1" name="option1" matInput type="text"
+                            placeholder="Enter your option1" autocomplete="off" required>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Option2</mat-label>
+                        <input [(ngModel)]="questionDto.option2" name="option2" matInput type="text"
+                            placeholder="Enter your option2" autocomplete="off" required>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Option3</mat-label>
+                        <input [(ngModel)]="questionDto.option3" name="option3" matInput type="text"
+                            placeholder="Enter your option3" autocomplete="off" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width" appearance="outline">
+                        <mat-label>Option4</mat-label>
+                        <input [(ngModel)]="questionDto.option4" name="option4" matInput type="text"
+                            placeholder="Enter your option4" autocomplete="off" required>
+                    </mat-form-field>
+
+
+                    <mat-form-field class="full-width">
+                        <mat-label>Answer</mat-label>
+                        <mat-select [(ngModel)]="questionDto.answer" name="answer" autocomplete="off" required>
+                            <mat-option [value]="''" disabled selected> Select Correct Answer </mat-option>
+                            <mat-option *ngIf="questionDto.option1" [value]="questionDto.option1">{{ questionDto.option1
+                                }}</mat-option>
+                            <mat-option *ngIf="questionDto.option2" [value]="questionDto.option2">{{ questionDto.option2
+                                }}</mat-option>
+                            <mat-option *ngIf="questionDto.option3" [value]="questionDto.option3">{{ questionDto.option3
+                                }}</mat-option>
+                            <mat-option *ngIf="questionDto.option4" [value]="questionDto.option4">{{ questionDto.option4
+                                }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+
+                    <div class="button-group">
+                        <button mat-flat-button type="button" class="back-button" (click)="goBack()">Back</button>
+                        <button mat-flat-button color="primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </mat-card>
+        </div>

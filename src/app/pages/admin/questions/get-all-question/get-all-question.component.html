@@ -1,0 +1,108 @@
+<mat-card>
+  <mat-card-title>Questions</mat-card-title>
+
+
+
+  <!-- Category Filter -->
+   <div class="filter-container">
+  <mat-form-field appearance="fill"  class="filter-field">
+    <mat-label>Filter by Category</mat-label>
+    <mat-select [(value)]="selectedCategory" (selectionChange)="filterQuestions()">
+      <mat-option value="">All Category Questions</mat-option>
+      <mat-option *ngFor="let category of categoriesDto" [value]="category.name">
+        {{ category.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-flat-button class="addQuestion-button" (click)="addQuestion()">Add-Question</button>
+</div>
+
+
+<!---------------------- here show all questions -------------------->
+  <div>
+    <mat-card *ngFor="let q of questionDto" class="question-card">
+      <mat-card-content>
+        <h3>{{ q.question }}</h3>
+
+        <mat-list>
+          <mat-list-item>1. {{ q.option1 }}</mat-list-item>
+          <mat-list-item>2. {{ q.option2 }}</mat-list-item>
+          <mat-list-item>3. {{ q.option3 }}</mat-list-item>
+          <mat-list-item>4. {{ q.option4 }}</mat-list-item>
+        </mat-list>
+        <p><strong>Answer:</strong> {{ q.answer }}</p>
+      </mat-card-content>
+      <div class="button-container">
+        <button mat-flat-button type="button" class="edit-btn" (click)="editQuestion(q)">Edit</button>
+        <button mat-flat-button type="button"  class="delete-btn" (click)="deleteQuestion(q.q_Id)">Delete</button>
+      </div>
+
+
+        <!--------------------------------------------------- Update Question Form ----------------------------------------------------->
+      <!-- Show update form clicking on edit button -->
+  <div class="form-container" *ngIf="selectedQuestion?.q_Id === q.q_Id">
+    <mat-card >
+      <mat-card-title>Edit Question</mat-card-title>
+      <form (ngSubmit)="updateQuestion()" autocomplete="off" class="updateForm">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Category</mat-label>
+          <input name="name" matInput type="text" [(ngModel)]="selectedQuestion.category.name" disabled >
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Q_Id</mat-label>
+          <input name="q_Id" matInput type="text" [(ngModel)]="selectedQuestion.q_Id" disabled >
+        </mat-form-field>
+           
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Question</mat-label>
+          <input name="question" matInput type="text" [(ngModel)]="selectedQuestion.question" required >
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Option1</mat-label>
+          <input name="option1" matInput type="text" [(ngModel)]="selectedQuestion.option1" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Option2</mat-label>
+          <input name="option2" matInput type="text" [(ngModel)]="selectedQuestion.option2" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Option3</mat-label>
+          <input name="option3" matInput type="text" [(ngModel)]="selectedQuestion.option3" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Option4</mat-label>
+          <input name="option4" matInput type="text" [(ngModel)]="selectedQuestion.option4" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <mat-label>Answer</mat-label>
+          <mat-select name="answer" [(ngModel)]="selectedQuestion.answer" required>
+            <mat-option [value]="selectedQuestion.option1">{{ selectedQuestion.option1 }}</mat-option>
+            <mat-option [value]="selectedQuestion.option2">{{ selectedQuestion.option2 }}</mat-option>
+            <mat-option [value]="selectedQuestion.option3">{{ selectedQuestion.option3 }}</mat-option>
+            <mat-option [value]="selectedQuestion.option4">{{ selectedQuestion.option4 }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="button-group">
+          <button mat-flat-button type="button" (click)="cancelEdit()">Cancel</button>
+          <button mat-flat-button color="primary" type="submit">Update</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+
+    </mat-card>
+  </div>
+
+</mat-card>
+
+ 
+
+
+  

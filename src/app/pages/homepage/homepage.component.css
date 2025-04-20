@@ -1,0 +1,8 @@
+.container {
+    max-width: 800px;
+    margin: 100px auto 0 auto; /* top margin: 100px, center horizontally */
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  
