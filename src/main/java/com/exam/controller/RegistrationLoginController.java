@@ -11,7 +11,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/exam")
-@CrossOrigin(origins = "http://localhost:4200") // Allow Angular frontend
+@CrossOrigin(origins = {"http://localhost:4200", "https://swapnalibanagar.github.io"}) // Allow Angular frontend  , allow GitHub
 public class RegistrationLoginController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class RegistrationLoginController {
 
     @PostMapping("/register")
     public ResponseEntity<Map<String, Object>> userRegistration(@RequestBody UserDto userDto) {
-        
+
         return userService.userRegistration(userDto);
     }
 

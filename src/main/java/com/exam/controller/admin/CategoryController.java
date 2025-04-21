@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("category")
-@CrossOrigin(origins = "http://localhost:4200") // Allow Angular frontend
+@CrossOrigin(origins = {"http://localhost:4200", "https://swapnalibanagar.github.io"}) // Allow Angular frontend  , allow GitHub
 public class CategoryController {
     @Autowired
     CategoryService categoryService;
