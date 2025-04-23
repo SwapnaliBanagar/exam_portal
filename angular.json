@@ -3,18 +3,16 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "examPortalu-ui": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
+  "examPortal-ui": {
+    "architect": {
+      "build": {
+        "options": {
+          "baseHref": "/exam_portal/"
         }
+      }
+    }
+  }
+}
       },
       "root": "",
       "sourceRoot": "src",
