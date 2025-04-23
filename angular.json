@@ -23,8 +23,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "src",
-            "basehref": "/exam_portal",
+            "outputPath": "docs/browser",
+            "baseHref": "/exam_portal/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
