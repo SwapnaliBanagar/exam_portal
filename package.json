@@ -2,7 +2,7 @@
  
   "name": "exam-portalu-ui",
   "version": "0.0.0",
-  "homepage": "https://swapnalibanagar.github.io/Exam_Portal",
+  "homepage": "https://swapnalibanagar.github.io/exam_portal",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
