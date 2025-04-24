@@ -93,9 +93,9 @@ export class StartQuizComponent implements OnInit {
       return;
     }
 
-    console.log("Question:", question.question);
-    console.log("Selected Option:", question.selectedOption);
-    console.log("Correct Answer:", question.answer);
+    // console.log("Question:", question.question);
+    // console.log("Selected Option:", question.selectedOption);
+    // console.log("Correct Answer:", question.answer);
 
 
     // Disable further interactions
